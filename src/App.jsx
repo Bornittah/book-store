@@ -19,7 +19,7 @@ function App() {
         <Route path="/book" element={<Book />} />
         <Route path="/categories" element={<Categories />} />
       </Routes>
-  </Router>
+    </Router>
   );
 }
 
