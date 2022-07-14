@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 24px;
+}
+
+main {
+  margin: 12px 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.space-btn {
+  justify-content: space-between;
+}
+
+.navbar {
+  list-style-type: none;
+}
+
+.nav-link {
+  margin: 0 4px;
+  padding: 0 12px;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2rem;
+}
