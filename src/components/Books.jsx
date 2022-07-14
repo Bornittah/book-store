@@ -1,17 +1,15 @@
+import Book from './Book';
 import Form from './Form';
-import Button from './shared/Button';
 
 const Books = () => (
   <div>
     <h2>List of Books</h2>
     <ul>
       <li>
-        Fight Hunger by Nim
-        <Button value="Remove" />
+        <Book title="Learn how to code" author="Bornittah" />
       </li>
       <li>
-        Fight Hunger by Nim
-        <Button value="Remove" />
+        <Book title="Learn how to debug your code" author="Bornittah" />
       </li>
     </ul>
     <Form />
