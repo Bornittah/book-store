@@ -5,9 +5,7 @@ const Books = () => (
   <div>
     <h2>List of Books</h2>
     <ol className="book-list">
-      <li>
-        <Book />
-      </li>
+      <Book />
     </ol>
     <Form />
   </div>

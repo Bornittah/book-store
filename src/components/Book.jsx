@@ -6,7 +6,7 @@ const Book = () => {
   const books = useSelector((state) => state.booksReducer);
   const dispatch = useDispatch();
   return (books.map((book) => (
-    <div key={book.id}>
+    <li key={book.id}>
       <h4>{book.title}</h4>
       <p>{book.author}</p>
       <Button
@@ -16,7 +16,7 @@ const Book = () => {
           dispatch(removeBook(book.id));
         }}
       />
-    </div>
+    </li>
   )));
 };
 
