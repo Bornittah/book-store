@@ -29,6 +29,7 @@ main {
 
 .navbar {
   list-style-type: none;
+  padding: 12px 0;
 }
 
 .nav-link {
@@ -40,4 +41,34 @@ main {
   text-decoration: none;
   color: inherit;
   font-size: 1.2rem;
+}
+
+.logo {
+  color: #0290ff;
+}
+
+.btn {
+  background-color: #0290ff;
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+form {
+  margin: 12px;
+}
+
+form input {
+  margin: 8px;
+  padding: 5px;
+  outline: none;
+}
+
+.book-list {
+  margin: 15px;
+}
+
+.book-list li {
+  margin: 6px 0;
 }
