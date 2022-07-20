@@ -4,14 +4,11 @@ import Form from './Form';
 const Books = () => (
   <div>
     <h2>List of Books</h2>
-    <ul>
+    <ol className="book-list">
       <li>
-        <Book title="Learn how to code" author="Bornittah" />
+        <Book />
       </li>
-      <li>
-        <Book title="Learn how to debug your code" author="Bornittah" />
-      </li>
-    </ul>
+    </ol>
     <Form />
   </div>
 );

@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => (
   <header>
-    <nav className="flex space-btn">
+    <nav className="flex space-btn align-center justify-center">
       <ul className="navbar flex space-btn">
-        <li className="nav-link">
-          <Link to="/">BookStore CMS</Link>
-        </li>
+        <li className="nav-link logo">BookStore CMS</li>
         <li className="nav-link">
           <Link to="/">BOOKS</Link>
         </li>
