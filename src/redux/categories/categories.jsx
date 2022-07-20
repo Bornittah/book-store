@@ -18,4 +18,4 @@ export const checkStatus = () => {
   return status;
 };
 
-export default { categoriesReducer };
+export default categoriesReducer;
