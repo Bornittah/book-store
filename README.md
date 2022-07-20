@@ -9,8 +9,7 @@ A web app that adds, stores and removes books from local storage. It is built wi
 - Tools: eslintrc and stylelintrc linters
 
 ## Live Demo (if available)
-No live demo
-
+Click [here](https://react-redux-book-store.herokuapp.com/) to checkout the live demo
 
 ## Getting Started
 

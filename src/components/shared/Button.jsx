@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button(props) {
+const Button = (props) => {
   const { value, onClick } = props;
   return (
-    <button type="submit" value={value} onClick={onClick}>
+    <button className="btn" type="submit" value={value} onClick={onClick}>
       {value}
     </button>
   );
-}
+};
 
 export default Button;
 
