@@ -1,23 +1,34 @@
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from './shared/Button';
-import { removeBook } from '../redux/books/books';
+import { removeBook, fetchBooks } from '../redux/books/books';
 
-const Book = () => {
-  const books = useSelector((state) => state.booksReducer);
+const BookList = () => {
+  const books = useSelector((state) => state.bookStore);
   const dispatch = useDispatch();
-  return (books.map((book) => (
-    <li key={book.id}>
-      <h4>{book.title}</h4>
-      <p>{book.author}</p>
-      <Button
-        value="Remove"
-        onClick={(e) => {
-          e.preventDefault();
-          dispatch(removeBook(book.id));
-        }}
-      />
-    </li>
-  )));
-};
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
 
-export default Book;
+  return (
+    <ol className="book-list">
+      { books.map((book) => (
+        <li key={book.id}>
+          <p>{book.category}</p>
+          <h4>{book.title}</h4>
+          <h6>{book.author}</h6>
+          <Button
+            id={book.id}
+            value="Remove"
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(removeBook(e.target.id));
+              dispatch(fetchBooks());
+            }}
+          />
+        </li>
+      ))}
+    </ol>
+  );
+};
+export default BookList;
