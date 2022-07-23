@@ -7,7 +7,6 @@
   background-color: #f5f6fa;
 }
 
-
 .flex {
   display: flex;
 }
@@ -51,9 +50,7 @@
 
 .nav-link a {
   text-decoration: none;
-  color: inherit;
   width: 3.688rem;
-  font-family: Montserrat;
   font-size: 0.813rem;
   font-weight: normal;
   font-stretch: normal;
@@ -175,7 +172,7 @@
 .form-section {
   margin: 0.313rem 6.25rem 0;
   padding: 1rem 9.188rem 1.625rem 1.688rem;
-  display: inline-block
+  display: inline-block;
 }
 
 .form {
@@ -215,7 +212,6 @@ select:hover {
   width: 10.875rem;
   height: 1.5rem;
   margin: 1.813rem 32.75rem 1.188rem 0;
-  font-family: Montserrat;
   font-size: 1.25rem;
   font-weight: bold;
   font-stretch: normal;
