@@ -1,4 +1,5 @@
 const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+
 export const appId = async () => {
   const response = await fetch(`${API_URL}/apps/`,
     {
@@ -7,15 +8,9 @@ export const appId = async () => {
         'Content-Type': 'application/json',
       },
     });
-  const id = response.text().then((data) => {
+  const id = response.json().then((data) => {
     if (response.status === 201) {
-      const key = localStorage.getItem('book-store');
-      if (key === null) {
-        localStorage.setItem('book-store', data);
-        const newKey = localStorage.getItem('book-store');
-        return newKey;
-      }
-      return key;
+      localStorage.setItem('book-store', data);
     }
     return data;
   })
@@ -23,20 +18,25 @@ export const appId = async () => {
   return id;
 };
 
-// App ID
-const id = localStorage.getItem('book-store');
+export const fetchAppId = () => {
+  const key = localStorage.getItem('book-store');
+  if (key === null) {
+    appId();
+    const newKey = localStorage.getItem('book-store');
+    return newKey;
+  }
+  return key;
+};
 
+const id = fetchAppId();
 export const getBooks = async () => {
   const response = await fetch(`${API_URL}/apps/${id}/books`,
     {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
   const bookList = [];
   const books = await response.json().then((data) => data)
-    .catch((err) => { console.log('Error', err); });
+    .catch((err) => err);
   Object.keys(books).forEach((book) => {
     books[book][0].id = book;
     bookList.push(books[book][0]);
@@ -51,7 +51,7 @@ export const postBook = async (bookdetails) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(bookdetails),
     });
-  const book = await response.json().then((data) => data).catch((err) => { console.log('Error', err); });
+  const book = await response.json().then((data) => data).catch((err) => err);
   return book;
 };
 

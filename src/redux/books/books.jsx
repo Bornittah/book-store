@@ -4,7 +4,6 @@ import { postBook, getBooks, deleteBook } from '../../api/bookAPI';
 const ADD_BOOK = 'book-store/books/ADD_BOOK';
 const FETCH_BOOKS = 'book-store/books/FETCH_BOOKS';
 const REMOVE_BOOK = 'book-store/books/REMOVE_BOOK';
-
 // fetch books from the api
 export const fetchBooks = createAsyncThunk(FETCH_BOOKS,
   async () => {
@@ -13,17 +12,17 @@ export const fetchBooks = createAsyncThunk(FETCH_BOOKS,
   });
 // add book to api
 export const addBook = createAsyncThunk(ADD_BOOK,
-  async (bookdetails) => {
+  async (bookdetails, thunkAPI) => {
     const response = await postBook(bookdetails);
-    await fetchBooks();
+    thunkAPI.dispatch(fetchBooks());
     return response;
   });
 
 // remove book from the api
 export const removeBook = createAsyncThunk(REMOVE_BOOK,
-  async (bookId) => {
+  async (bookId, thunkAPI) => {
     const response = await deleteBook(bookId);
-    await fetchBooks();
+    thunkAPI.dispatch(fetchBooks());
     return response;
   });
 
