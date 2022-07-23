@@ -1,4 +1,11 @@
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux/es/exports';
+// eslint-disable-next-line import/no-cycle
+// import { fetchBooks } from '../redux/books/books';
+
 const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
+// const dispatch = useDispatch();
+
 export const appId = async () => {
   const response = await fetch(`${API_URL}/apps/`,
     {
@@ -9,13 +16,7 @@ export const appId = async () => {
     });
   const id = response.text().then((data) => {
     if (response.status === 201) {
-      const key = localStorage.getItem('book-store');
-      if (key === null) {
-        localStorage.setItem('book-store', data);
-        const newKey = localStorage.getItem('book-store');
-        return newKey;
-      }
-      return key;
+      localStorage.setItem('book-store', data);
     }
     return data;
   })
@@ -24,15 +25,22 @@ export const appId = async () => {
 };
 
 // App ID
-const id = localStorage.getItem('book-store');
-
+export const fetchAppId = () => {
+  const key = localStorage.getItem('book-store');
+  if (key === null) {
+    appId();
+    const newKey = localStorage.getItem('book-store');
+    console.log(newKey);
+    return newKey;
+  }
+  return key;
+};
+// app id from the local storage
+const id = fetchAppId();
 export const getBooks = async () => {
   const response = await fetch(`${API_URL}/apps/${id}/books`,
     {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
   const bookList = [];
   const books = await response.json().then((data) => data)

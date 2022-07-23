@@ -14,7 +14,7 @@ const NavBar = () => (
         </li>
       </ul>
       <div>
-        <Link to="/">Profile</Link>
+        <Link to="/"><i className="fa fa-user icon" aria-hidden="true" /></Link>
       </div>
     </nav>
   </header>
