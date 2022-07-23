@@ -150,11 +150,10 @@ select {
   flex: 1;
 }
 
-form
-  input:hover,
-  select:hover {
- outline: 0.5px solid #0290ff;
- border: none;
+form input:hover,
+select:hover {
+  outline: 0.5px solid #0290ff;
+  border: none;
 }
 
 .book-list {
