@@ -21,7 +21,7 @@ main {
 }
 
 .flex-1 {
- flex: 1;
+  flex: 1;
 }
 
 .align-center {
@@ -105,6 +105,7 @@ main {
 .progressbar {
   width: 20%;
 }
+
 /* end progress bar */
 
 .btn {
@@ -117,9 +118,9 @@ main {
 
 .tranparent-btn {
   color: #0290ff;
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  border: none; 
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
 }
 
 .border-right {
@@ -140,7 +141,8 @@ form {
   width: 100%;
 }
 
-form input, select {
+form input,
+select {
   margin: 8px;
   padding: 12px;
   outline: none;
@@ -148,9 +150,9 @@ form input, select {
   flex: 1;
 }
 
-form 
-input:hover, 
-select:hover {
+form
+  input:hover,
+  select:hover {
  outline: 0.5px solid #0290ff;
  border: none;
 }
