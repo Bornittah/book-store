@@ -14,7 +14,7 @@ export const appId = async () => {
         'Content-Type': 'application/json',
       },
     });
-  const id = response.text().then((data) => {
+  const id = response.json().then((data) => {
     if (response.status === 201) {
       localStorage.setItem('book-store', data);
     }

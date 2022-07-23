@@ -5,7 +5,6 @@ import { addBook, fetchBooks } from '../redux/books/books';
 import Button from './shared/Button';
 
 const Form = () => {
-  // calling useDispatch to the component
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
@@ -22,9 +21,9 @@ const Form = () => {
   };
 
   return (
-    <div>
-      <h2>Add new book</h2>
-      <form className="flex">
+    <div className="form-section">
+      <h2 className="form-title">ADD NEW BOOK</h2>
+      <form className="flex form">
         <input type="text" value={state.title} name="title" onChange={handleChanges} placeholder="Book title" />
         <input type="text" value={state.author} name="author" onChange={handleChanges} placeholder="Book author" />
         <select required value={state.category} name="category" onChange={handleChanges}>

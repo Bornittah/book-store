@@ -3,8 +3,8 @@ import Form from './Form';
 
 const BooksLibrary = () => (
   <div>
-    <h2>List of Books</h2>
     <BooksList />
+    <hr className="line" />
     <Form />
   </div>
 );

@@ -47,7 +47,7 @@ const BooksList = () => {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-1">
+            <div className="flex flex-1 space-btn">
               <div className="progressbar">
                 <Progressbar
                   input={60}

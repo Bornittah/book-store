@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => (
-  <header>
+  <header className="header">
     <nav className="flex space-btn align-center justify-center">
-      <ul className="navbar flex space-btn">
+      <ul className="navbar flex space-btn justify-center align-center">
         <li className="nav-link logo">BookStore CMS</li>
         <li className="nav-link">
           <Link to="/">BOOKS</Link>
@@ -13,8 +13,8 @@ const NavBar = () => (
           <Link to="/categories">CATEGORIES</Link>
         </li>
       </ul>
-      <div>
-        <Link to="/"><i className="fa fa-user icon" aria-hidden="true" /></Link>
+      <div className="profile">
+        <i className="fa fa-user icon" aria-hidden="true" />
       </div>
     </nav>
   </header>
