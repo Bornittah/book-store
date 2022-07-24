@@ -180,7 +180,8 @@
 }
 
 form input,
-select {
+select,
+button {
   margin: 1.188rem 1.125rem 0 0;
   padding: 0.813rem 5rem 0.813rem 1.063rem;
   border-radius: 4px;
@@ -219,4 +220,27 @@ select:hover {
   line-height: normal;
   letter-spacing: -0.18px;
   color: var(--warm-grey);
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
+
+  .form {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .list-item {
+    width: 80%;
+  }
+
+  .line {
+    width: 100%;
+  }
 }

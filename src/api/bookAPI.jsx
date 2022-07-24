@@ -8,7 +8,7 @@ export const appId = async () => {
         'Content-Type': 'application/json',
       },
     });
-  const id = response.json().then((data) => {
+  const id = response.text().then((data) => {
     if (response.status === 201) {
       localStorage.setItem('book-store', data);
     }
@@ -28,8 +28,9 @@ export const fetchAppId = () => {
   return key;
 };
 
-const id = fetchAppId();
+// const id = fetchAppId();
 export const getBooks = async () => {
+  const id = fetchAppId();
   const response = await fetch(`${API_URL}/apps/${id}/books`,
     {
       method: 'GET',
@@ -45,17 +46,21 @@ export const getBooks = async () => {
 };
 
 export const postBook = async (bookdetails) => {
+  const id = fetchAppId();
   const response = await fetch(`${API_URL}/apps/${id}/books`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(bookdetails),
     });
-  const book = await response.json().then((data) => data).catch((err) => err);
-  return book;
+  await response.text();
+  const updatedDetails = { ...bookdetails, id: bookdetails.item_id };
+  delete updatedDetails.item_id;
+  return updatedDetails;
 };
 
 export const deleteBook = async (bookId) => {
+  const id = fetchAppId();
   const response = await fetch(`${API_URL}/apps/${id}/books/${bookId}`,
     {
       method: 'DELETE',
