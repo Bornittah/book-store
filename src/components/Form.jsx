@@ -1,32 +1,32 @@
 import uniqid from 'uniqid';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux/es/exports';
-import { addBook, fetchBooks } from '../redux/books/books';
+import { addBook } from '../redux/books/books';
 import Button from './shared/Button';
 
 const Form = () => {
   const dispatch = useDispatch();
-
-  const [state, setState] = useState({
-    item_id: uniqid(),
-    title: '',
-    author: '',
-    category: '',
-  });
-
-  const handleChanges = (e) => {
-    setState({
-      ...state, [e.target.name]: e.target.value,
-    });
-  };
-
   return (
     <div className="form-section">
       <h2 className="form-title">ADD NEW BOOK</h2>
-      <form className="flex form">
-        <input type="text" value={state.title} name="title" onChange={handleChanges} placeholder="Book title" />
-        <input type="text" value={state.author} name="author" onChange={handleChanges} placeholder="Book author" />
-        <select required value={state.category} name="category" onChange={handleChanges}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(
+            addBook({
+              item_id: uniqid(),
+              title: e.target.elements.title.value,
+              author: e.target.elements.author.value,
+              category: e.target.elements.category.value,
+            }),
+          );
+          e.target.reset();
+        }}
+        className="form flex"
+      >
+        <input type="text" name="title" placeholder="Book title" />
+        <input type="text" name="author" placeholder="Book author" />
+        <select required name="category">
           <option value="Category" hidden>Category</option>
           <option value="Action">Action</option>
           <option value="Fiction">Fiction</option>
@@ -38,17 +38,6 @@ const Form = () => {
         <Button
           className="btn"
           value="Add book"
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(addBook(state));
-            setState({
-              item_id: uniqid(),
-              title: '',
-              author: '',
-              category: '',
-            });
-            dispatch(fetchBooks());
-          }}
         />
       </form>
     </div>
